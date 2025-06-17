@@ -7,9 +7,8 @@
   <style>
     body {
       font-family: sans-serif;
-      margin: 0;
+      background: #f4f4f4;
       padding: 2rem;
-      background-color: #f4f4f4;
     }
 
     .signup-container {
@@ -22,8 +21,8 @@
     }
 
     .signup-container h2 {
-      margin-bottom: 1.5rem;
       text-align: center;
+      margin-bottom: 1.5rem;
     }
 
     .signup-container label {
@@ -52,15 +51,15 @@
 
     #signup-error {
       color: red;
-      display: none;
       margin-top: 1rem;
+      display: none;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="signup-container">
     <h2>Admin Signup</h2>
-
     <form onsubmit="return validateSignupForm(event)" autocomplete="off">
       <label for="signup-email">Email</label>
       <input type="email" id="signup-email" name="email" required />
