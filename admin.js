@@ -1,4 +1,4 @@
-// ===== SIGNUP VALIDATION =====
+// ===== Signup Validation =====
 function validateSignupForm(event) {
   event.preventDefault();
 
@@ -10,7 +10,7 @@ function validateSignupForm(event) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!email.value || !emailPattern.test(email.value)) {
-    error.textContent = "Please enter a valid email.";
+    error.textContent = "Please enter a valid email address.";
     error.style.display = "block";
     return false;
   }
@@ -27,17 +27,16 @@ function validateSignupForm(event) {
     return false;
   }
 
-  // Save admin credentials to localStorage
   localStorage.setItem("adminEmail", email.value);
   localStorage.setItem("adminPassword", password.value);
 
   error.style.display = "none";
   alert("Signup successful! You can now log in.");
-  window.location.href = "admin-login.html"; // Redirect after signup
+  window.location.href = "admin-login.html";
   return false;
 }
 
-// ===== LOGIN VALIDATION =====
+// ===== Login Validation =====
 function validateForm(event) {
   event.preventDefault();
 
@@ -56,6 +55,7 @@ function validateForm(event) {
 
   if (email.value === storedEmail && password.value === storedPassword) {
     errorMessage.style.display = "none";
+    console.log("Login successful. Redirecting...");
     window.location.href = "admin-dashboard.html";
   } else {
     errorMessage.textContent = "Invalid login credentials.";
