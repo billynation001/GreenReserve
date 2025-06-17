@@ -3,13 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="styles/admin.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .dashboard {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .logout-btn {
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background-color: #e74c3c;
+    }
+  </style>
 </head>
 <body>
-  <main style="padding: 2rem; font-family: sans-serif;">
-    <h1>Welcome to the Admin Dashboard</h1>
-    <p>This is your control center. From here, you can manage reservations, users, and more.</p>
-    <a href="admin-login.html">Logout</a>
-  </main>
+  <div class="dashboard">
+    <h1>Welcome, Admin</h1>
+    <p id="admin-email"></p>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Display stored admin email
+    const email = localStorage.getItem("adminEmail");
+    document.getElementById("admin-email").textContent = email
+      ? `Logged in as: ${email}`
+      : "No email found.";
+
+    // Logout function clears stored credentials and redirects
+    function logout() {
+      localStorage.removeItem("adminEmail");
+      localStorage.removeItem("adminPassword");
+      window.location.href = "admin-login.html";
+    }
+  </script>
 </body>
 </html>
