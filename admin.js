@@ -1,4 +1,5 @@
-function validateForm() {
+function validateForm(event) {
+  event.preventDefault(); // ⛔ Stop the form from submitting normally
   const email = document.getElementById("email");
   const password = document.getElementById("password");
   const errorMessage = document.getElementById("error-message");
